@@ -1,0 +1,10 @@
+### Forbid access _ Your site or a small free comment
+
+# Interdire le listing des repertoires
+Options -Indexes
+
+RewriteEngine On
+
+# Interdire l'acces aux dossiers non statiques 
+RewriteRule ^(asset) - [R=403,L]
+
