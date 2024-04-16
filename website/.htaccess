@@ -6,5 +6,5 @@ Options -Indexes
 RewriteEngine On
 
 # Interdire l'acces aux dossiers non statiques 
-RewriteRule ^(asset) - [R=403,L]
+RewriteRule ^(app) - [R=403,L]
 
