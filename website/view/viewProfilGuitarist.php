@@ -171,7 +171,7 @@
                     <div class="bentoBox boxHome">
 
                         <form id="addGearGuitar" class="conForm" action="?action=ProfilGuitariste" method="POST">
-                            <select name="selectedMusic" class="selectMusic">
+                            <select name="selectedMusic" class='selectForm'>
                                 <option value="">Sélectionnez une musique</option>
                                 <?php // Afficher les musiques triées par album dans le menu déroulant
                                 foreach ($musicByAlbum as $album => $musics) {
@@ -182,10 +182,10 @@
                                     echo "</optgroup>";
                                 } ?>
                             </select>
-                            <input type="text" name="nameG" placeholder="Nom du modèle" /><br>
-                            <input type="text" name="brandG" placeholder="Marque" /><br>
-                            <input type="text" name="yearG" placeholder="Année de sortie" /><br>
-                            <input type="submit" classe value="Ajouter" />
+                            <input class="inputForm" type="text" name="nameG" placeholder="Nom du modèle" /><br>
+                            <input class="inputForm" type="text" name="brandG" placeholder="Marque" /><br>
+                            <input class="inputForm" type="text" name="yearG" placeholder="Année de sortie" /><br>
+                            <input class="btn" type="submit" classe value="Ajouter" />
                         </form>
                     </div>
                 </div>
@@ -194,7 +194,7 @@
                     <div class="bentoBox boxHome">
 
                         <form id="addGearAmp" class="conForm" action="#" method="POST">
-                            <select name="selectedMusic" class="selectMusic">
+                            <select name="selectedMusic" class='selectForm'>
                                 <option value="">Sélectionnez une musique</option>
                                 <?php // Afficher les musiques triées par album dans le menu déroulant
                                 foreach ($musicByAlbum as $album => $musics) {
@@ -205,11 +205,11 @@
                                     echo "</optgroup>";
                                 } ?>
                             </select>
-                            <input type="text" name="nameA" placeholder="Nom du modèle" /><br>
-                            <input type="text" name="brandA" placeholder="Marque" /><br>
-                            <input type="text" name="power" placeholder="Puissance" /><br>
-                            <input type="text" name="techno" placeholder="Technologie" /><br>
-                            <input type="submit" value="Ajouter" />
+                            <input class="inputForm" type="text" name="nameA" placeholder="Nom du modèle" /><br>
+                            <input class="inputForm" type="text" name="brandA" placeholder="Marque" /><br>
+                            <input class="inputForm" type="text" name="power" placeholder="Puissance" /><br>
+                            <input class="inputForm" type="text" name="techno" placeholder="Technologie" /><br>
+                            <input class="btn" type="submit" value="Ajouter" />
                         </form>
                     </div>
                 </div>
@@ -219,7 +219,7 @@
                     <div class="bentoBox boxHome">
 
                         <form id="addGearPedal" class="conForm" action="#" method="POST">
-                            <select name="selectedMusic" class="selectMusic">
+                            <select name="selectedMusic" class='selectForm'>
                                 <option value="">Sélectionnez une musique</option>
                                 <?php // Afficher les musiques triées par album dans le menu déroulant
                                 foreach ($musicByAlbum as $album => $musics) {
@@ -230,10 +230,10 @@
                                     echo "</optgroup>";
                                 } ?>
                             </select>
-                            <input type="text" name="effect" placeholder="Effet" /><br>
-                            <input type="text" name="nameP" placeholder="Nom du modèle" /><br>
-                            <input type="text" name="brandP" placeholder="Marque" /><br>
-                            <input type="submit" value="Ajouter" />
+                            <input class="inputForm" type="text" name="effect" placeholder="Effet" /><br>
+                            <input class="inputForm" type="text" name="nameP" placeholder="Nom du modèle" /><br>
+                            <input class="inputForm" type="text" name="brandP" placeholder="Marque" /><br>
+                            <input class="btn" type="submit" value="Ajouter" />
                         </form>
                     </div>
                 </div>

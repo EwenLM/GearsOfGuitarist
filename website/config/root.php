@@ -34,8 +34,8 @@ if (isset($_GET["action"])) {
         case "ProfilGuitariste": 
         require RACINE . "/controller/profilGuitarist.php";
         break; 
-        case "Recherche": 
-        require RACINE . "/controller/search.php";
+        case "Contact": 
+        require RACINE . "/controller/contact.php";
         break; 
         case "Suppression": 
         require RACINE . "/controller/deleteContribution.php";

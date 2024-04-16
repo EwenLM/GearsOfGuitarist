@@ -1,1 +1,3 @@
-<div class="bento"><h2 class="title">Page inconnue - Error 404</h2></div>
+<main> 
+    <div class="bento"><h2 class="title">Error 404 - Page inconnue</h2></div>
+</main>

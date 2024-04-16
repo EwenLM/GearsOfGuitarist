@@ -41,12 +41,12 @@ error_reporting(E_ALL);
                 <?php unset($_SESSION['msgGuitarist']);
                 } ?>
                 <form id="addGuitarist" class="conForm" action="" method="POST">
-                    <input type="text" name="id" placeholder="id Spotify" /><br>
-                    <input type="text" name="name" placeholder="Nom" /><br>
-                    <input type="text" name="group" placeholder="Groupe actuel (facultatif)" /><br>
-                    <textarea type="message" name="bio" placeholder="Biographie"></textarea><br>
+                    <input class="inputForm" type="text" name="id" placeholder="id Spotify" /><br>
+                    <input class="inputForm" type="text" name="name" placeholder="Nom" /><br>
+                    <input class="inputForm" type="text" name="group" placeholder="Groupe actuel (facultatif)" /><br>
+                    <textarea class="inputForm" type="message" name="bio" placeholder="Biographie"></textarea><br>
 
-                    <input type="submit" value="Ajouter" />
+                    <input class="btn" type="submit" value="Ajouter" />
                 </form>
             </article>
         </section>
@@ -62,9 +62,9 @@ error_reporting(E_ALL);
                 <?php unset($_SESSION['msgAlbum']);
                 } ?>
                 <form id="addAlbum" class="conForm" action="#" method="POST">
-                    <input type="text" name="title" placeholder="Titre de l'album" /><br>
-                    <input type="text" name="year" placeholder="Année de sortie" /><br>
-                    <input type="submit" value="Ajouter" />
+                    <input class="inputForm" type="text" name="title" placeholder="Titre de l'album" /><br>
+                    <input class="inputForm" type="text" name="year" placeholder="Année de sortie" /><br>
+                    <input class="btn" type="submit" value="Ajouter" />
                 </form>
             </article>
         </section>
@@ -81,17 +81,17 @@ error_reporting(E_ALL);
             <article class="bentoBox boxHome">
                 <form id="addMusic" class="conForm" action="#" method="POST">
 
-                    <select name="guitarist" id="guitarist">
-                        <option value="">Sélectionnez un guitariste (facultatif)</option>
+                    <select name="guitarist" id="guitarist" class='selectForm'>
+                        <option class="inputForm" value="">Sélectionnez un guitariste</option>
                         <?php
                         // Afficher le nom des guitaristes dans un menu déroulant
                         foreach ($_SESSION['selectGuitarist'] as $name) {
-                            echo "<option value='" . $name . "'>" . $name . "</option>";
+                            echo "<option  value='" . $name . "'>" . $name . "</option>";
                         } ?>
                     </select>
 
-                    <select name="album" id="album">
-                        <option value="">Sélectionnez un album</option>
+                    <select name="album" id="album" class='selectForm'>
+                        <option class="inputForm" value="">Sélectionnez un album</option>
                         <?php
                         // Afficher le titre des albums dans un menu déroulant
                         foreach ($_SESSION['selectAlbum'] as $title) {
@@ -99,8 +99,8 @@ error_reporting(E_ALL);
                         } ?>
                     </select>
 
-                    <input type="text" name="titleM" placeholder="Titre de la musique" /><br>
-                    <input type="submit" value="Ajouter" />
+                    <input class="inputForm" type="text" name="titleM" placeholder="Titre de la musique" /><br>
+                    <input class="btn" type="submit" value="Ajouter" />
 
                 </form>
             </article>

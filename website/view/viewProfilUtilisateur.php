@@ -27,7 +27,7 @@
                         <p class="text"><?= $contribution['brand'] ?> - <?= $contribution['name'] ?> (<?= $contribution['dateD'] ?>)</p>
                         <form method="post" action="?action=Suppression">
                             <input type="hidden" name="idContribution" value="<?= $contribution['idContribution'] ?>">
-                            <button type="submit" name="delete">Supprimer</button>
+                            <button class="btn" type="submit" name="delete">Supprimer</button>
                         </form>
                     </div>
                     <hr>
@@ -42,7 +42,7 @@
         <div id="deleteUser" class="bento">
         <form method="post" action="?action=Ban">
             <input type="hidden" name="banUser" value="<?=$profilId?>">
-            <button type="submit" name="delete">Bannir Utilisateur</button>
+            <button class="btn" type="submit" name="delete">Bannir Utilisateur</button>
             </form>
         </div>
     <?php } else {

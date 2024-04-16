@@ -31,15 +31,13 @@
                     </li>
 
                     <li id="contact">
-                        <a href="#">
+                        <a href="?action=Contact">
                             <p>Contact</p>
                         </a>
                     </li>
                 </ul>
             </div>
             <div id="navCon">
-                <div class="dropdown">
-
                     <div id="loginLink">
                         <?php if (isset($_SESSION["pseudo"])) { ?>
                             <a class="text login" href="?action=Déconnexion">Déconnexion</a>
@@ -51,7 +49,6 @@
                             <a class="text login" href="?action=Admin">Admin</a>
                         <?php } ?>
                     </div>
-                </div>
             </div>
         </nav>
     </header>

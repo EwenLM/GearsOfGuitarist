@@ -11,10 +11,10 @@
             <?php unset($_SESSION['msg']); } ?>
             
             <form id="formSignup" class="conForm" action="?action=Connexion" method="POST">
-                <input type="text" name="pseudo" placeholder="Pseudo" /><br>
-                <input type="password" name="password" placeholder="Mot de passe" /><br>
+                <input class="inputForm" type="text" name="pseudo" placeholder="Pseudo" /><br>
+                <input class="inputForm" type="password" name="password" placeholder="Mot de passe" /><br>
 
-                <input type="submit" value="Se Connecter" />
+                <input class="btn" type="submit" value="Se Connecter" />
             </form>
 
         </article>
