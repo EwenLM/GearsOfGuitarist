@@ -22,12 +22,13 @@
             <h2 class="title">Contributions</h2>
             <article class="bentoBox boxHome">
                 <?php if (isset($_SESSION['contributions']) && !empty($_SESSION['contributions'])) : ?>
-                    <?php foreach ($_SESSION['contributions'] as $contribution) : ?> 
+                    <?php foreach ($_SESSION['contributions'] as $contribution) :
+                        ($_SESSION['idContribution']= $contribution['idGear']); ?> 
                     <div>
                         <p class="text"><?= $contribution['brand'] ?> - <?= $contribution['name'] ?> (<?= $contribution['dateD'] ?>)</p>
                         <form method="post" action="?action=Suppression">
                             <input type="hidden" name="idContribution" value="<?= $contribution['idContribution'] ?>">
-                            <button class="btn" type="submit" name="delete">Supprimer</button>
+                            <button class="logout" type="submit" name="delete">Supprimer</button>
                         </form>
                     </div>
                     <hr>
@@ -38,11 +39,10 @@
 
             </article>
         </section>
-
         <div id="deleteUser" class="bento">
-        <form method="post" action="?action=Ban">
+        <form method="post" action="?action=Ban" class="conForm">
             <input type="hidden" name="banUser" value="<?=$profilId?>">
-            <button class="btn" type="submit" name="delete">Bannir Utilisateur</button>
+            <button class="logout" type="submit" name="delete">Bannir Utilisateur</button>
             </form>
         </div>
     <?php } else {

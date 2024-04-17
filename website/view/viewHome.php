@@ -3,13 +3,13 @@
 <main>
         <section id="presentation" class="bento">
                 <h2 class="title">Presentation</h2>
-                <article class="bentoBox boxHome">
-                        <p class="text">Esse ad sunt tempor eiusmod ad nostrud exercitation commodo.
-                                Adipisicing et dolor nostrud consequat nostrud duis laboris magna tempor aute aliqua deserunt veniam.
-                                Labore est fugiat aliquip commodo dolor officia incididunt non est voluptate Lorem id.
-                                Ea occaecat excepteur sint adipisicing dolore culpa adipisicing incididunt excepteur sit Lorem. <br>
-                                Aliqua labore irure fugiat adipisicing. In aliqua dolore veniam et commodo commodo culpa non in occaecat nulla cupidatat
-                                sit reprehenderit. Veniam excepteur Lorem minim sint deserunt ex velit velit consequat in culpa veniam.
+                <article class="bentoBox boxHome ">
+        
+                        <h3 class="title">Bienvenue sur Gears of Guitarist.</h3>
+                        <p class="text">
+                                Que vous soyez guitariste, passionné de guitare, passionné de musiques ou tout simplement curieux, ce site est fait pour vous ! <br> <br>
+                                Vous trouverez ici toutes les informations sur vos guitaristes préférés: les albums, les musiques et le matériel qu'il utilise sur chaque musique. <br><br>
+                                Vous avez des connaissances concernant le matériel d'un guitarsite ? <br><br> Alors connectez-vous et <em>Ajoutez du matériel</em> via la page d'un guitariste !
                         </p>
                 </article>
         </section>

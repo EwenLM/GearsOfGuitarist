@@ -119,6 +119,7 @@ function addGear($name, $brand)
         // Enregistrement du message d'erreur et du code d'erreur dans un fichier
         $logMessage = "$dateTime Erreur : $errorMessage (Code d'erreur : $errorCode)\n";
         error_log($logMessage, 3, RACINE . "/config/error.log");
+
         $result = 'Le site rencontre un problème, réessayez plus tard.';
     }
     return $result;
@@ -134,6 +135,7 @@ function addGuitar($year)
     try {
         $req = $cnx->prepare("INSERT INTO guitar (yearY, idGear) VALUES (:year, :idGear)");
         $result = $req->execute([':year' => htmlspecialchars($year), ':idGear' => $idGear]);
+        
     } catch (PDOException $msg) {
         $dateTime = date("d-m-Y H:i:s");
         $errorMessage = $msg->getMessage();
@@ -216,6 +218,7 @@ function addContribution()
 
         $req = $cnx->prepare("INSERT  into contribution (idMusic, idGear, idUser) values(:music, :gear, :user)");
         $result = $req->execute([':music' => $idMusic, ':gear' => $idGear, ':user' => $idUser]);
+        
         return $result;
     } catch (PDOException $msg) {
         $dateTime = date("d-m-Y H:i:s");
@@ -235,7 +238,7 @@ function selectContribution($idUser)
 {
     $cnx = connexionPDO();
     try {
-        $req = $cnx->prepare("SELECT gear1.name, gear1.brand, music.name, contribution.dateD, contribution.idContribution 
+        $req = $cnx->prepare("SELECT gear1.name, gear1.brand, music.name, contribution.dateD, contribution.idContribution, contribution.idGear 
             FROM gear AS gear1 
             JOIN contribution USING (idGear) 
             JOIN gear AS gear2 USING (idGear) 
@@ -258,11 +261,14 @@ function selectContribution($idUser)
 }
 
 //Suppression contribution
-function deleteContribution($idContribution){
+function deleteContribution($idContribution, $idGear){
     $cnx = connexionPDO();
     try {
-        $req = $cnx->prepare("DELETE FROM contribution WHERE `contribution`.`idContribution` = :idContribution");
-        $req->execute([':idContribution' => $idContribution]);
+        $req = $cnx->prepare("DELETE FROM contribution WHERE `contribution`.`idContribution` = :idContribution;
+        DELETE FROM guitar WHERE `guitar`.`idGear` = :idGear ;
+        DELETE FROM gear WHERE `gear`.`idGear` = :idGear;
+        ");
+        $req->execute([':idContribution' => $idContribution, ':idGear'=> $idGear]);
         $result = $req->fetchAll(PDO::FETCH_ASSOC);
         header("Location:?action=ProfilUtilisateur");
     } catch (PDOException $msg) {
@@ -303,26 +309,6 @@ function numberOfConByUser($idUser)
     }
 }
 
-//Nombre de contribution par musique
-function numberOfConByMusic($idMusic)
-{
-    $cnx = connexionPDO();
-    try {
-        $req = $cnx->prepare("SELECT COUNT(*) FROM `contribution` WHERE idMusic = :idMusic ");
-        $req->execute([':idMusic' => $idMusic]);
-        $result = $req->fetch(PDO::FETCH_ASSOC);
-        return $result;
-    } catch (PDOException $msg) {
-        $dateTime = date("d-m-Y H:i:s");
-        $errorMessage = $msg->getMessage();
-        $errorCode = $msg->getCode();
 
-        // Enregistrement du message d'erreur et du code d'erreur dans un fichier
-        $logMessage = "$dateTime Erreur : $errorMessage (Code d'erreur : $errorCode)\n";
-        error_log($logMessage, 3, RACINE . "/config/error.log");
-
-        return $result;
-    }
-}
 
 ?>

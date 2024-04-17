@@ -31,9 +31,10 @@ error_reporting(E_ALL);
         </section>
 
         <!-- ==========Formulaire ajout guitariste========== -->
-        <section id="formGuitarist" class="bento">
+        <section class="container">
+        <article id="formGuitarist" class="bento formAdmin">
             <h2 class="title">Ajout de guitariste</h2>
-            <article class="bentoBox boxHome">
+            <div class="bentoBox boxHome">
                 <?php if (isset($_SESSION["msgGuitarist"])) {
                     $message = $_SESSION["msgGuitarist"];
                 ?>
@@ -44,17 +45,17 @@ error_reporting(E_ALL);
                     <input class="inputForm" type="text" name="id" placeholder="id Spotify" /><br>
                     <input class="inputForm" type="text" name="name" placeholder="Nom" /><br>
                     <input class="inputForm" type="text" name="group" placeholder="Groupe actuel (facultatif)" /><br>
-                    <textarea class="inputForm" type="message" name="bio" placeholder="Biographie"></textarea><br>
+                    <textarea class="inputForm" rows="6" type="message" name="bio" placeholder="Biographie"></textarea><br>
 
                     <input class="btn" type="submit" value="Ajouter" />
                 </form>
-            </article>
-        </section>
+            </div>
+        </article>
 
         <!-- ==========Formulaire ajout d'album========== -->
-        <section id="formAlbum" class="bento">
+        <article id="formAlbum" class="bento formAdmin">
             <h2 class="title">Ajout d'album</h2>
-            <article class="bentoBox boxHome">
+            <div class="bentoBox boxHome">
                 <?php if (isset($_SESSION["msgAlbum"])) {
                     $message = $_SESSION["msgAlbum"];
                 ?>
@@ -66,11 +67,11 @@ error_reporting(E_ALL);
                     <input class="inputForm" type="text" name="year" placeholder="Année de sortie" /><br>
                     <input class="btn" type="submit" value="Ajouter" />
                 </form>
+            </div>
             </article>
-        </section>
 
         <!--============Formulaire ajout de musique  -->
-        <section id="formMusic" class="bento">
+        <article id="formMusic" class="bento formAdmin">
             <h2 class="title">Ajout de musique</h2>
             <?php if (isset($_SESSION["msgMusic"])) {
                 $message = $_SESSION["msgMusic"];
@@ -78,8 +79,8 @@ error_reporting(E_ALL);
                 <p class="text"><?php echo $message ?></p>
             <?php unset($_SESSION['msgMusic']);
             } ?>
-            <article class="bentoBox boxHome">
-                <form id="addMusic" class="conForm" action="#" method="POST">
+            <div class="bentoBox boxHome">
+                <form id="addMusic" class="conForm" action="?action=Admin" method="POST">
 
                     <select name="guitarist" id="guitarist" class='selectForm'>
                         <option class="inputForm" value="">Sélectionnez un guitariste</option>
@@ -103,9 +104,9 @@ error_reporting(E_ALL);
                     <input class="btn" type="submit" value="Ajouter" />
 
                 </form>
-            </article>
-        </section>
-
+            </div>
+        </article>
+    </section>
     <?php } else {
         header("Location:?action=Accueil");
     }

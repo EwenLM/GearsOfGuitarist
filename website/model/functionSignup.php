@@ -36,6 +36,7 @@ function addUser($mail, $password, $pseudo)
         $req = $cnx->prepare("INSERT  into useru (mail, password, pseudo) values(:mail,:password,:pseudo)");
 
         $result = $req->execute([':mail' => htmlspecialchars($mail), ':password' => $mdpHash, ':pseudo' => htmlspecialchars($pseudo)]);
+        header("Refresh:2; url= '?action=Accueil'");
         return $result = true;
     } catch (PDOException $msg) {
         $dateTime = date("d-m-Y H:i:s");
@@ -45,9 +46,8 @@ function addUser($mail, $password, $pseudo)
         // Enregistrement de la date , du message d'erreur et du code d'erreur dans un fichier
         $logMessage = "$dateTime Erreur : $errorMessage (Code d'erreur : $errorCode)\n";
         error_log($logMessage, 3, RACINE . "/config/error.log");
-        if ($errorCode == 23000) {
-            $result = 'Ce pseudo est déjà pris ! ';
-        }
     }
     return $result;
 }
+
+?>

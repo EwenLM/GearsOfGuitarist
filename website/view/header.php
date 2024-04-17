@@ -37,18 +37,19 @@
                     </li>
                 </ul>
             </div>
-            <div id="navCon">
-                    <div id="loginLink">
-                        <?php if (isset($_SESSION["pseudo"])) { ?>
-                            <a class="text login" href="?action=Déconnexion">Déconnexion</a>
-                        <?php } else { ?>
-                            <a class="text login" href="?action=Connexion">Connexion</a>
-                            <a class="text login" href="?action=Inscription">Inscription</a>
-                        <?php } ?>
-                        <?php if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] === true) { ?>
-                            <a class="text login" href="?action=Admin">Admin</a>
-                        <?php } ?>
-                    </div>
+            <div id="loginLink">
+
+                <?php if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] === true) { ?>
+                    <a class="text login" href="?action=Admin">Admin</a>
+                <?php } ?>
+                <?php if (isset($_SESSION["pseudo"])) { ?>
+                    <a class="text logout" href="?action=Déconnexion">Déconnexion</a>
+                <?php } else { ?>
+                    <a class="text login" href="?action=Connexion">Connexion</a>
+                    <a class="text login" href="?action=Inscription">Inscription</a>
+                <?php } ?>
+
+
             </div>
         </nav>
     </header>

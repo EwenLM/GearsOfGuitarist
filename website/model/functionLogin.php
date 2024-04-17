@@ -70,7 +70,7 @@ function login($pseudo, $password)
         if ($admin['isAdmin'] == 1) {
             $_SESSION["isAdmin"] = true;
         }
-        header("Refresh:2; url= '?action=Accueil'");
+        header("Refresh:3; url= '?action=Accueil'");
         return true; // Authentification réussie
     } else {
         // Le mot de passe ne correspond pas au hash stocké en base de données
@@ -197,7 +197,7 @@ function deleteAccount($idUser){
         $req = $cnx->prepare("DELETE from `useru` where idUser = :idUser");
         $req->execute([':idUser' => $idUser]);
         $result = $req->fetch(PDO::FETCH_ASSOC);
-        header("Location:?action=Accueil");
+
     } catch (PDOException $msg) {
         $dateTime = date("d-m-Y H:i:s");
         $errorMessage = $msg->getMessage();

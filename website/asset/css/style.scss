@@ -45,10 +45,12 @@ $fontText: 'new_order';
 
 $bentoCol1 : #1e1e1e;
 $bentoCol2 : #2F2F2F;
-$backgroundCol : #000000;
+$backgroundCol : #080808;
 $textCol : #ffffff;
-$textCol2 : #000000;
+$textCol2 : #080808;
 $hover : #676767;
+$hover2 : #0054D1;
+$hover3 : #BD0022;
 
 //============Mixin==========
 
@@ -74,14 +76,14 @@ $hover : #676767;
     font-size: 1.1rem;
     margin-bottom: 5px;
     cursor: pointer;
-
 }
 
 @mixin buttonHover {
-    background-color: $hover;
+    background-color: $hover2;
 }
 
 // ====================================================
+
 
 html,
 body {
@@ -93,6 +95,7 @@ body {
 a {
     color: $textCol2;
     text-decoration: none;
+    cursor: pointer;
 }
 
 button {
@@ -103,7 +106,7 @@ button:hover {
     @include buttonHover();
 }
 
-ul li {
+li {
     list-style-type: none;
 }
 
@@ -137,20 +140,35 @@ nav {
     background-color: $bentoCol1;
 }
 
-#loginLink {
-    display: flex;
-    margin-right: 10px;
-
-}
-
 .login {
-    @include buttonShape();
-    margin-bottom: 0 !important;
+    background-color: $hover;
+    padding: 8px 10px;
+    margin-right: 20px;
+    border-radius: 5px;
 }
 
 .login:hover {
-    @include buttonHover();
+    background-color: $hover2;
+
 }
+
+.logout {
+    background-color: $hover;
+    padding: 8px 10px;
+    margin-right: 20px;
+    border-radius: 5px;
+}
+
+.logout:hover {
+    background-color: $hover3;
+}
+
+#loginLink {
+    display: flex;
+    margin-right: 10px;
+    z-index: 500;
+}
+
 
 // =================Menu Burger========================
 #menuToggle {
@@ -321,7 +339,13 @@ nav {
 
 // ==================Body=====================
 main {
-    margin-top: 200px;
+    margin-top: 30vh;
+}
+
+#presentation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .bento {
@@ -335,14 +359,12 @@ main {
 
 .boxHome {
     background-color: $bentoCol2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .bentoBox {
     @include boxShape();
 }
+
 
 .title {
     text-align: center;
@@ -361,7 +383,6 @@ main {
 .listLastGuitarist {
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding: 0;
 }
 
@@ -461,7 +482,11 @@ footer {
 
 #discography {
     padding: 20px 35%;
+    width: 20vw;
+    display: flex;
+    justify-content: center;
 }
+
 
 // ==Boite modal==
 
@@ -506,6 +531,10 @@ footer {
     cursor: pointer;
 }
 
+.album-title {
+    width: 250px;
+}
+
 .album-title,
 .title-gear {
     cursor: pointer;
@@ -525,10 +554,6 @@ hr {
     width: 50%;
 
 }
-
-// ===================Formulaire Connexion=======================
-
-
 
 // =================================Mediaqueries=============================================
 
@@ -552,15 +577,13 @@ hr {
         margin-right: 80px;
     }
 
-    .login {
-        margin-right: 20px;
-    }
+
 }
 
 @media screen and (min-width:1200px) {
 
     #menu li {
-        height: 400px;
+        height: 500px;
         opacity: 0.5;
     }
 
@@ -572,7 +595,53 @@ hr {
         font-size: 4rem;
     }
 
+    .container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #topFiveContainer {
+        width: 45vw;
+    }
+
+    #trackList {
+        width: 70vw;
+    }
+
+    #musicGear {
+        width: 45vw;
+    }
+
     .modal {
         justify-content: center;
+    }
+
+    #discography {
+        width: 5vw;
+    }
+
+    #updateUser {
+        width: 45vw;
+    }
+
+    #updateLogin {
+        width: 45vw;
+    }
+
+    #deleteUser {
+        display: flex;
+        align-items: center;
+    }
+
+    .formAdmin {
+        width: 33vw;
+    }
+
+    #containerGear {
+        display: flex;
+    }
+
+    .formGear {
+        margin: 0px 10px;
     }
 }
