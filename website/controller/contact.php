@@ -1,17 +1,21 @@
 <?php
 
-if (isset($_POST['name'], $_POST['email'], $_POST['subject'], $_POST['message'])) {
-    $name = $_POST['name'];
+if (isset( $_POST['email'], $_POST['subject'], $_POST['message'])) {
+    
     $email = $_POST['email'];
     $subject = $_POST['subject'];
     $message = $_POST['message'];
 
-    if (empty($name) || empty($email) || empty($subject) || empty($message)) {
+    if (empty($email) || empty($subject) || empty($message)) {
         $msg = 'Veuillez saisir tous les champs';
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $msg = 'Veuillez saisir un email valide';
+    } elseif (preg_match('/<\s*script\s*>|<\s*\/\s*script\s*>/i', $message) || preg_match('/<\s*script\s*>|<\s*\/\s*script\s*>/i', $subject)) {
+        $msg = 'Votre message contient des caratères non autorisé';
     } else {
-        
-        $to = 'ewenlm@proton.me'; 
-        $headers = "From: $name <$email>" . "\r\n";
+
+        $to = 'ewenlm@proton.me';
+        $headers = "From: <$email>" . "\r\n";
 
         // Envoyer l'e-mail
         if (mail($to, $subject, $message, $headers)) {
@@ -20,7 +24,7 @@ if (isset($_POST['name'], $_POST['email'], $_POST['subject'], $_POST['message'])
             $msg = "Erreur lors de l'envoi du message. Veuillez réessayer.";
         }
     }
-    $_SESSION['msgContact']= $msg;
+    $_SESSION['msgContact'] = $msg;
 }
 
 
@@ -29,4 +33,3 @@ include RACINE . '/view/head2.php';
 include RACINE . '/view/header.php';
 include RACINE . '/view/viewContact.php';
 include RACINE . '/view/footer.php';
-?>

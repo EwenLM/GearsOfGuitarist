@@ -9,7 +9,6 @@
 <?php unset($_SESSION['msgContact']) ;} ?>
 <form action="?action=Contact" method="post" class="conForm">
 
-    <input class="inputForm" type="text" id="name" name="name" placeholder="Votre Pseudo">
     <input class="inputForm" type="email" id="email" name="email" placeholder="Votre Email" >
     <input class="inputForm" type="text" id="subject" name="subject" placeholder="Sujet" >
     <textarea class="inputForm" id="message" name="message" rows="6" cols="50" placeholder="Votres message"></textarea>
