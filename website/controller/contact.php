@@ -14,7 +14,7 @@ if (isset( $_POST['email'], $_POST['subject'], $_POST['message'])) {
         $msg = 'Votre message contient des caratères non autorisé';
     } else {
 
-        $to = 'ewenlm@proton.me';
+        $to = 'your@mail.com';
         $headers = "From: <$email>" . "\r\n";
 
         // Envoyer l'e-mail
